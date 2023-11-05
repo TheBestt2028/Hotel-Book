@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{%  block start %}
+
+<div class="container mt-5 pt-5 col-6">
+
+    <form method="POST">
+        {% csrf_token %}
+        {%include "messages.html"%}
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" name= "username">
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name= "password">
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+      </form>
+      <p>Don't have an account?</p>
+      <p> <a href= "{% url "register_page" %}"> 
+        Register now
+      </a></p>
+</div>
+
+
+{% endblock %}
